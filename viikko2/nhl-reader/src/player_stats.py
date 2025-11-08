@@ -14,7 +14,7 @@ class PlayerStats():
         results = []
         self.players.sort(key=lambda p: p.goals + p.assists, reverse=True)
         for player in self.players:
-            if player.nationality == "FIN":
+            if player.nationality == nationality:
                 results.append(player)
         return results
 
