@@ -1,15 +1,10 @@
-from player_reader import PlayerReader
-
 class PlayerStats():
-    def __init__(self, PR):
-        reader = PR
+    def __init__(self, player_reader):
+        reader = player_reader
         self.players = reader.get_players()
         #self.players.sort(key=lambda p: p.goals + p.assists, reverse=True)
-
-
         #for player in self.players:
-            #player_stats = (f"{player.name:20}", f"{player.team:20}", player.goals, "+", player.assists, "=", player.goals + player.assists)
-    
+
     def top_scorers_by_nationality(self, nationality):
         results = []
         self.players.sort(key=lambda p: p.goals + p.assists, reverse=True)
@@ -18,3 +13,12 @@ class PlayerStats():
                 results.append(player)
         return results
 
+    def get_stats(self):
+        results = []
+        self.players.sort(key=lambda p: p.goals + p.assists, reverse=True)
+        for player in self.players:
+            results.append(player)
+        return results
+
+    def __str__(self):
+        return f"{self.get_stats()}"
