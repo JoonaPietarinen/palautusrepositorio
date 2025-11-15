@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-11-12T14:42:26.570269" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\src\tests">
+<suite id="s1-s1" name="Increase Counter" source="D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\src\tests\increase_counter.robot">
+<test id="s1-s1-t1" name="Increase Counter Once" line="5">
+<kw name="Counter Value Should Be">
+<msg time="2025-11-12T14:42:26.621265" level="FAIL">No keyword with name 'Counter Value Should Be' found.</msg>
+<arg>0</arg>
+<status status="FAIL" start="2025-11-12T14:42:26.621265" elapsed="0.000000">No keyword with name 'Counter Value Should Be' found.</status>
+</kw>
+<kw name="Increase Counter">
+<status status="NOT RUN" start="2025-11-12T14:42:26.621765" elapsed="0.000000"/>
+</kw>
+<kw name="Counter Value Should Be">
+<arg>1</arg>
+<status status="NOT RUN" start="2025-11-12T14:42:26.621765" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-12T14:42:26.619767" elapsed="0.002499">No keyword with name 'Counter Value Should Be' found.</status>
+</test>
+<test id="s1-s1-t2" name="Increase Counter Many Times" line="10">
+<kw name="Counter Value Should Be">
+<msg time="2025-11-12T14:42:26.623264" level="FAIL">No keyword with name 'Counter Value Should Be' found.</msg>
+<arg>0</arg>
+<status status="FAIL" start="2025-11-12T14:42:26.623264" elapsed="0.000000">No keyword with name 'Counter Value Should Be' found.</status>
+</kw>
+<kw name="Increase Counter">
+<status status="NOT RUN" start="2025-11-12T14:42:26.623765" elapsed="0.000000"/>
+</kw>
+<kw name="Increase Counter">
+<status status="NOT RUN" start="2025-11-12T14:42:26.624268" elapsed="0.000000"/>
+</kw>
+<kw name="Increase Counter">
+<status status="NOT RUN" start="2025-11-12T14:42:26.624268" elapsed="0.000000"/>
+</kw>
+<kw name="Counter Value Should Be">
+<arg>3</arg>
+<status status="NOT RUN" start="2025-11-12T14:42:26.624769" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-12T14:42:26.622266" elapsed="0.003003">No keyword with name 'Counter Value Should Be' found.</status>
+</test>
+<test id="s1-s1-t3" name="Increment Counter By Amount" line="17">
+<kw name="Counter Value Should Be">
+<msg time="2025-11-12T14:42:26.626264" level="FAIL">No keyword with name 'Counter Value Should Be' found.</msg>
+<arg>0</arg>
+<status status="FAIL" start="2025-11-12T14:42:26.626264" elapsed="0.000000">No keyword with name 'Counter Value Should Be' found.</status>
+</kw>
+<kw name="Increment Counter By">
+<arg>5</arg>
+<status status="NOT RUN" start="2025-11-12T14:42:26.626765" elapsed="0.000000"/>
+</kw>
+<kw name="Counter Value Should Be">
+<arg>5</arg>
+<status status="NOT RUN" start="2025-11-12T14:42:26.626765" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-12T14:42:26.625269" elapsed="0.001997">No keyword with name 'Counter Value Should Be' found.</status>
+</test>
+<status status="FAIL" start="2025-11-12T14:42:26.614765" elapsed="0.012501"/>
+</suite>
+<suite id="s1-s2" name="Reset Counter" source="D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\src\tests\reset_counter.robot">
+<test id="s1-s2-t1" name="Reset Counter After One Increment" line="5">
+<kw name="Counter Value Should Be">
+<msg time="2025-11-12T14:42:26.633767" level="FAIL">No keyword with name 'Counter Value Should Be' found.</msg>
+<arg>0</arg>
+<status status="FAIL" start="2025-11-12T14:42:26.633767" elapsed="0.000500">No keyword with name 'Counter Value Should Be' found.</status>
+</kw>
+<kw name="Increase Counter">
+<status status="NOT RUN" start="2025-11-12T14:42:26.634267" elapsed="0.000000"/>
+</kw>
+<kw name="Counter Value Should Be">
+<arg>1</arg>
+<status status="NOT RUN" start="2025-11-12T14:42:26.634267" elapsed="0.000000"/>
+</kw>
+<kw name="Reset Counter">
+<status status="NOT RUN" start="2025-11-12T14:42:26.634766" elapsed="0.000000"/>
+</kw>
+<kw name="Counter Value Should Be">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-11-12T14:42:26.634766" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-12T14:42:26.633270" elapsed="0.001496">No keyword with name 'Counter Value Should Be' found.</status>
+</test>
+<test id="s1-s2-t2" name="Reset Counter After Several Increments" line="12">
+<kw name="Counter Value Should Be">
+<msg time="2025-11-12T14:42:26.636264" level="FAIL">No keyword with name 'Counter Value Should Be' found.</msg>
+<arg>0</arg>
+<status status="FAIL" start="2025-11-12T14:42:26.636264" elapsed="0.000000">No keyword with name 'Counter Value Should Be' found.</status>
+</kw>
+<kw name="Increment Counter By">
+<arg>5</arg>
+<status status="NOT RUN" start="2025-11-12T14:42:26.636264" elapsed="0.000000"/>
+</kw>
+<kw name="Counter Value Should Be">
+<arg>5</arg>
+<status status="NOT RUN" start="2025-11-12T14:42:26.636264" elapsed="0.000502"/>
+</kw>
+<kw name="Reset Counter">
+<status status="NOT RUN" start="2025-11-12T14:42:26.636766" elapsed="0.000000"/>
+</kw>
+<kw name="Counter Value Should Be">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-11-12T14:42:26.636766" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-12T14:42:26.635265" elapsed="0.001501">No keyword with name 'Counter Value Should Be' found.</status>
+</test>
+<status status="FAIL" start="2025-11-12T14:42:26.628266" elapsed="0.008999"/>
+</suite>
+<status status="FAIL" start="2025-11-12T14:42:26.572268" elapsed="0.065498"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="0" fail="5" skip="0">Tests</stat>
+<stat name="Increase Counter" id="s1-s1" pass="0" fail="3" skip="0">Tests.Increase Counter</stat>
+<stat name="Reset Counter" id="s1-s2" pass="0" fail="2" skip="0">Tests.Reset Counter</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-11-12T14:42:26.619267" level="ERROR">Error in file 'D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\src\tests\increase_counter.robot' on line 2: Importing library 'D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\src\CounterLibrary.py' failed: SyntaxError: expected ':' (CounterLibrary.py, line 20)
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\src
+  D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\.venv\Scripts\robot.exe
+  C:\Users\bombe\AppData\Local\Python\pythoncore-3.12-64\python312.zip
+  C:\Users\bombe\AppData\Local\Python\pythoncore-3.12-64\DLLs
+  C:\Users\bombe\AppData\Local\Python\pythoncore-3.12-64\Lib
+  C:\Users\bombe\AppData\Local\Python\pythoncore-3.12-64
+  D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\.venv
+  D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\.venv\Lib\site-packages</msg>
+<msg time="2025-11-12T14:42:26.632768" level="ERROR">Error in file 'D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\src\tests\reset_counter.robot' on line 2: Importing library 'D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\src\CounterLibrary.py' failed: SyntaxError: expected ':' (CounterLibrary.py, line 20)
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\src
+  D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\.venv\Scripts\robot.exe
+  C:\Users\bombe\AppData\Local\Python\pythoncore-3.12-64\python312.zip
+  C:\Users\bombe\AppData\Local\Python\pythoncore-3.12-64\DLLs
+  C:\Users\bombe\AppData\Local\Python\pythoncore-3.12-64\Lib
+  C:\Users\bombe\AppData\Local\Python\pythoncore-3.12-64
+  D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\.venv
+  D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\hello-robot\.venv\Lib\site-packages</msg>
+</errors>
+</robot>

@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-11-14T15:55:25.498124" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\login\src\tests">
+<suite id="s1-s1" name="Home" source="D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\login\src\tests\home.robot">
+<kw name="Open And Configure Browser" owner="resource" type="SETUP">
+<if>
+<branch type="IF" condition="$BROWSER == 'chrome'">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-14T15:55:25.884797" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000019B96DF6BD0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-14T15:55:25.884299" elapsed="0.000498"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-14T15:55:25.884797" elapsed="0.000500"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:25.883799" elapsed="0.001498"/>
+</branch>
+<branch type="ELSE IF" condition="$BROWSER == 'firefox'">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].FirefoxOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-11-14T15:55:25.885297" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--private-window</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2025-11-14T15:55:25.885297" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-11-14T15:55:25.885297" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-11-14T15:55:25.883799" elapsed="0.001498"/>
+</if>
+<if>
+<branch type="IF" condition="$HEADLESS == 'true'">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.05 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-11-14T15:55:25.885797" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-14T15:55:25.885797" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:25.885297" elapsed="0.001000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="NOT RUN" start="2025-11-14T15:55:25.886297" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-11-14T15:55:25.886297" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-11-14T15:55:25.885297" elapsed="0.001000"/>
+</if>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:25.886297" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-14T15:55:25.886297" elapsed="1.241610"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:25.883296" elapsed="1.244611"/>
+</kw>
+<test id="s1-s1-t1" name="Click Login Link" line="8">
+<kw name="Reset Application And Go To Starting Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<status status="PASS" start="2025-11-14T15:55:27.130456" elapsed="2.042505"/>
+</kw>
+<kw name="Go To Starting Page" owner="resource">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:29.173967" level="INFO">Opening url 'http://localhost:5001'</msg>
+<arg>${HOME_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-14T15:55:29.173967" elapsed="0.420844"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:29.172961" elapsed="0.421850"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:27.129452" elapsed="2.465359"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:29.595320" level="INFO">Clicking link 'Login'.</msg>
+<arg>Login</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:29.595320" elapsed="0.328699"/>
+</kw>
+<kw name="Login Page Should Be Open" owner="resource">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:29.980783" level="INFO">Page title is 'Login'.</msg>
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-11-14T15:55:29.924526" elapsed="0.056257"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:29.924019" elapsed="0.056764"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:27.127907" elapsed="2.853386"/>
+</test>
+<test id="s1-s1-t2" name="Click Register Link" line="12">
+<kw name="Reset Application And Go To Starting Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<status status="PASS" start="2025-11-14T15:55:29.982794" elapsed="2.040436"/>
+</kw>
+<kw name="Go To Starting Page" owner="resource">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:32.023727" level="INFO">Opening url 'http://localhost:5001'</msg>
+<arg>${HOME_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-14T15:55:32.023727" elapsed="0.077573"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:32.023727" elapsed="0.077573"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:29.982297" elapsed="2.119003"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:32.101805" level="INFO">Clicking link 'Register new user'.</msg>
+<arg>Register new user</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:32.101805" elapsed="0.536161"/>
+</kw>
+<kw name="Register Page Should Be Open" owner="resource">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:32.693842" level="INFO">Page title is 'Register'.</msg>
+<arg>Register</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-11-14T15:55:32.637966" elapsed="0.055876"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:32.637966" elapsed="0.055876"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:29.981796" elapsed="2.712569"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-14T15:55:32.694864" elapsed="2.145096"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:25.534261" elapsed="9.305699"/>
+</suite>
+<suite id="s1-s2" name="Login" source="D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\login\src\tests\login.robot">
+<kw name="Open And Configure Browser" owner="resource" type="SETUP">
+<if>
+<branch type="IF" condition="$BROWSER == 'chrome'">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-14T15:55:34.846987" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000019B96E5A8A0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-14T15:55:34.846987" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-14T15:55:34.846987" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:34.846987" elapsed="0.001005"/>
+</branch>
+<branch type="ELSE IF" condition="$BROWSER == 'firefox'">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].FirefoxOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-11-14T15:55:34.847992" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--private-window</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2025-11-14T15:55:34.847992" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-11-14T15:55:34.847992" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-11-14T15:55:34.846987" elapsed="0.001005"/>
+</if>
+<if>
+<branch type="IF" condition="$HEADLESS == 'true'">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.05 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-11-14T15:55:34.847992" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-14T15:55:34.847992" elapsed="0.001014"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:34.847992" elapsed="0.001014"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="NOT RUN" start="2025-11-14T15:55:34.849006" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-11-14T15:55:34.849006" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-11-14T15:55:34.847992" elapsed="0.001014"/>
+</if>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:34.849006" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-14T15:55:34.849006" elapsed="1.198299"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:34.846987" elapsed="1.200318"/>
+</kw>
+<test id="s1-s2-t1" name="Login With Correct Credentials" line="8">
+<kw name="Reset Application Create User And Go To Login Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<status status="PASS" start="2025-11-14T15:55:36.048825" elapsed="2.048200"/>
+</kw>
+<kw name="Create User" owner="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="PASS" start="2025-11-14T15:55:38.097025" elapsed="4.107720"/>
+</kw>
+<kw name="Go To Login Page" owner="resource">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:42.205747" level="INFO">Opening url 'http://localhost:5001/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-14T15:55:42.205244" elapsed="0.412811"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:42.205244" elapsed="0.412811"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:36.048313" elapsed="6.569742"/>
+</kw>
+<kw name="Set Username">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:42.618055" level="INFO">Typing text 'kalle' into text field 'username'.</msg>
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:42.618055" elapsed="0.253930"/>
+</kw>
+<arg>kalle</arg>
+<status status="PASS" start="2025-11-14T15:55:42.618055" elapsed="0.253930"/>
+</kw>
+<kw name="Set Password">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:42.872998" level="INFO">Typing password into text field 'password'.</msg>
+<msg time="2025-11-14T15:55:43.004378" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:42.872501" elapsed="0.214610"/>
+</kw>
+<arg>kalle123</arg>
+<status status="PASS" start="2025-11-14T15:55:42.872501" elapsed="0.214610"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:43.087111" level="INFO">Clicking button 'Login'.</msg>
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:43.087111" elapsed="0.632505"/>
+</kw>
+<kw name="Login Should Succeed">
+<kw name="Main Page Should Be Open" owner="resource">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:43.776272" level="INFO">Page title is 'Ohtu Application main page'.</msg>
+<arg>Ohtu Application main page</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-11-14T15:55:43.720615" elapsed="0.055657"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:43.720615" elapsed="0.055657"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:43.720114" elapsed="0.056158"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:36.047305" elapsed="7.729487"/>
+</test>
+<test id="s1-s2-t2" name="Login With Incorrect Password" line="14">
+<kw name="Reset Application Create User And Go To Login Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<status status="PASS" start="2025-11-14T15:55:43.777288" elapsed="2.049665"/>
+</kw>
+<kw name="Create User" owner="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="PASS" start="2025-11-14T15:55:45.826953" elapsed="4.094820"/>
+</kw>
+<kw name="Go To Login Page" owner="resource">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:49.922276" level="INFO">Opening url 'http://localhost:5001/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-14T15:55:49.922276" elapsed="0.074803"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:49.922276" elapsed="0.074803"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:43.777288" elapsed="6.219791"/>
+</kw>
+<kw name="Set Username">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:49.998170" level="INFO">Typing text 'kalle' into text field 'username'.</msg>
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:49.998170" elapsed="0.245038"/>
+</kw>
+<arg>kalle</arg>
+<status status="PASS" start="2025-11-14T15:55:49.997079" elapsed="0.246129"/>
+</kw>
+<kw name="Set Password">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:50.244212" level="INFO">Typing password into text field 'password'.</msg>
+<msg time="2025-11-14T15:55:50.380714" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:50.243713" elapsed="0.221766"/>
+</kw>
+<arg>kalle456</arg>
+<status status="PASS" start="2025-11-14T15:55:50.243713" elapsed="0.221766"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:50.465986" level="INFO">Clicking button 'Login'.</msg>
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:50.465986" elapsed="0.833325"/>
+</kw>
+<kw name="Login Should Fail With Message">
+<kw name="Login Page Should Be Open" owner="resource">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:51.354828" level="INFO">Page title is 'Login'.</msg>
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-11-14T15:55:51.299810" elapsed="0.055018"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:51.299810" elapsed="0.055018"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:51.481229" level="INFO">Current page contains text 'Invalid username or password'.</msg>
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-11-14T15:55:51.354828" elapsed="0.126401"/>
+</kw>
+<arg>Invalid username or password</arg>
+<status status="PASS" start="2025-11-14T15:55:51.299311" elapsed="0.181918"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:43.777288" elapsed="7.704444"/>
+</test>
+<test id="s1-s2-t3" name="Login With Nonexistent Username" line="20">
+<kw name="Reset Application Create User And Go To Login Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<status status="PASS" start="2025-11-14T15:55:51.482121" elapsed="2.056102"/>
+</kw>
+<kw name="Create User" owner="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="PASS" start="2025-11-14T15:55:53.538728" elapsed="4.093394"/>
+</kw>
+<kw name="Go To Login Page" owner="resource">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:57.632588" level="INFO">Opening url 'http://localhost:5001/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-14T15:55:57.632588" elapsed="0.074695"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:57.632122" elapsed="0.075161"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:51.482121" elapsed="6.225162"/>
+</kw>
+<kw name="Set Password">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:57.708306" level="INFO">Typing password into text field 'password'.</msg>
+<msg time="2025-11-14T15:55:57.838620" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:57.707283" elapsed="0.224800"/>
+</kw>
+<arg>kalle456</arg>
+<status status="PASS" start="2025-11-14T15:55:57.707283" elapsed="0.224800"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:57.932587" level="INFO">Clicking button 'Login'.</msg>
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:55:57.932587" elapsed="0.867138"/>
+</kw>
+<kw name="Login Should Fail With Message">
+<kw name="Login Page Should Be Open" owner="resource">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:58.855321" level="INFO">Page title is 'Login'.</msg>
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-11-14T15:55:58.800224" elapsed="0.055097"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:58.800224" elapsed="0.055097"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:55:58.967987" level="INFO">Current page contains text 'Username and password are required'.</msg>
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-11-14T15:55:58.855321" elapsed="0.112666"/>
+</kw>
+<arg>Username and password are required</arg>
+<status status="PASS" start="2025-11-14T15:55:58.799725" elapsed="0.168262"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:51.482121" elapsed="7.485866"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-14T15:55:58.969510" elapsed="2.116712"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:55:34.840976" elapsed="26.245744"/>
+</suite>
+<suite id="s1-s3" name="Register" source="D:\DEV\koulu\VersioH\palautusrepositorio\viikko3\login\src\tests\register.robot">
+<kw name="Open And Configure Browser" owner="resource" type="SETUP">
+<if>
+<branch type="IF" condition="$BROWSER == 'chrome'">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-14T15:56:01.100294" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000019B96E37380&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-14T15:56:01.100294" elapsed="0.000498"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-14T15:56:01.100792" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:56:01.099790" elapsed="0.001002"/>
+</branch>
+<branch type="ELSE IF" condition="$BROWSER == 'firefox'">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].FirefoxOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-11-14T15:56:01.101291" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--private-window</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2025-11-14T15:56:01.101291" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-11-14T15:56:01.100792" elapsed="0.000499"/>
+</branch>
+<status status="PASS" start="2025-11-14T15:56:01.099790" elapsed="0.001501"/>
+</if>
+<if>
+<branch type="IF" condition="$HEADLESS == 'true'">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.05 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-11-14T15:56:01.101793" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-11-14T15:56:01.102298" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:56:01.101291" elapsed="0.001007"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="NOT RUN" start="2025-11-14T15:56:01.102788" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-11-14T15:56:01.102298" elapsed="0.000490"/>
+</branch>
+<status status="PASS" start="2025-11-14T15:56:01.101291" elapsed="0.001497"/>
+</if>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:56:01.102788" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-14T15:56:01.102788" elapsed="1.207476"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:56:01.099292" elapsed="1.210972"/>
+</kw>
+<test id="s1-s3-t1" name="Register With Valid Username And Password" line="9">
+<kw name="Reset Application Create User And Go To Register Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<status status="PASS" start="2025-11-14T15:56:02.311264" elapsed="2.045907"/>
+</kw>
+<kw name="Create User" owner="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="PASS" start="2025-11-14T15:56:04.357171" elapsed="4.098034"/>
+</kw>
+<kw name="Go To Register Page" owner="resource">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:56:08.455703" level="INFO">Opening url 'http://localhost:5001/register'</msg>
+<arg>${REGISTER_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-14T15:56:08.455703" elapsed="0.396444"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:56:08.455703" elapsed="0.396444"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:56:02.310762" elapsed="6.541385"/>
+</kw>
+<kw name="Set Username">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:56:08.853155" level="INFO">Typing text 'Kalle666' into text field 'username'.</msg>
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:56:08.852657" elapsed="0.241902"/>
+</kw>
+<arg>Kalle666</arg>
+<status status="PASS" start="2025-11-14T15:56:08.852657" elapsed="0.241902"/>
+</kw>
+<kw name="Set Password">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:56:09.095569" level="INFO">Typing password into text field 'password'.</msg>
+<msg time="2025-11-14T15:56:09.230266" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:56:09.095569" elapsed="0.223484"/>
+</kw>
+<arg>Kalle123</arg>
+<status status="PASS" start="2025-11-14T15:56:09.095065" elapsed="0.223988"/>
+</kw>
+<kw name="Set PasswordConfirmation">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:56:09.320066" level="INFO">Typing password into text field 'password_confirmation'.</msg>
+<msg time="2025-11-14T15:56:09.450918" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>password_confirmation</arg>
+<arg>${password_confirmation}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:56:09.320066" elapsed="0.215235"/>
+</kw>
+<arg>Kalle123</arg>
+<status status="PASS" start="2025-11-14T15:56:09.319558" elapsed="0.215743"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:56:09.536309" level="INFO">Clicking button 'Register'.</msg>
+<arg>Register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-14T15:56:09.535810" elapsed="0.605913"/>
+</kw>
+<kw name="Register Should Succeed">
+<kw name="Welcome Page Should Be Open" owner="resource">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-14T15:56:10.198635" level="INFO">Page title is 'Welcome to Ohtu Application!'.</msg>
+<arg>Welcome to Ohtu Application!</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-11-14T15:56:10.142727" elapsed="0.055908"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:56:10.142230" elapsed="0.056405"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:56:10.142230" elapsed="0.056405"/>
+</kw>
+<status status="PASS" start="2025-11-14T15:56:02.310264" elapsed="7.888870"/>
+</test>
+<test id="s1-s3-t2" name="Register With Too Short Username And Valid Password" line="16">
+<kw name="Reset Application Create User And Go To Register Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<status status="PASS" start="2025-11-14T15:56:10.200135" elapsed="2.039648"/>
+</kw>
+<kw name="Create User" owner="AppLibrary">
+<msg time="2025-11-14T15:56:18.375993" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /welcome (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF6210&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="FAIL" start="2025-11-14T15:56:12.240286" elapsed="6.140740">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /welcome (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF6210&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<kw name="Go To Register Page" owner="resource">
+<status status="NOT RUN" start="2025-11-14T15:56:18.381026" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:10.200135" elapsed="8.180891">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /welcome (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF6210&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:10.199640" elapsed="8.181886">Setup failed:
+ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /welcome (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF6210&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<test id="s1-s3-t3" name="Register With Valid Username And Too Short Password" line="23">
+<kw name="Reset Application Create User And Go To Register Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<msg time="2025-11-14T15:56:22.484463" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96E75430&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<status status="FAIL" start="2025-11-14T15:56:18.382732" elapsed="4.103727">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96E75430&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<kw name="Create User" owner="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="NOT RUN" start="2025-11-14T15:56:22.486459" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Register Page" owner="resource">
+<status status="NOT RUN" start="2025-11-14T15:56:22.486459" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:18.382732" elapsed="4.103727">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96E75430&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:18.382226" elapsed="4.104735">Setup failed:
+ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96E75430&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<test id="s1-s3-t4" name="Register With Valid Username And Invalid Password" line="30">
+<kw name="Reset Application Create User And Go To Register Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<msg time="2025-11-14T15:56:26.570097" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF6BA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<status status="FAIL" start="2025-11-14T15:56:22.487979" elapsed="4.084615">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF6BA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<kw name="Create User" owner="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="NOT RUN" start="2025-11-14T15:56:26.572594" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Register Page" owner="resource">
+<status status="NOT RUN" start="2025-11-14T15:56:26.572594" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:22.487979" elapsed="4.085116">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF6BA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:22.486961" elapsed="4.086134">Setup failed:
+ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF6BA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<test id="s1-s3-t5" name="Register With Nonmatching Password And Password Confirmation" line="37">
+<kw name="Reset Application Create User And Go To Register Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<msg time="2025-11-14T15:56:30.666207" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96E5B110&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<status status="FAIL" start="2025-11-14T15:56:26.574093" elapsed="4.094120">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96E5B110&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<kw name="Create User" owner="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="NOT RUN" start="2025-11-14T15:56:30.669225" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Register Page" owner="resource">
+<status status="NOT RUN" start="2025-11-14T15:56:30.669225" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:26.574093" elapsed="4.095132">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96E5B110&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:26.573595" elapsed="4.096139">Setup failed:
+ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96E5B110&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<test id="s1-s3-t6" name="Register With Username That Is Already In Use" line="44">
+<kw name="Reset Application Create User And Go To Register Page" type="SETUP">
+<kw name="Reset Application" owner="AppLibrary">
+<msg time="2025-11-14T15:56:34.754730" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF7620&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<status status="FAIL" start="2025-11-14T15:56:30.670738" elapsed="4.085992">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF7620&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<kw name="Create User" owner="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="NOT RUN" start="2025-11-14T15:56:34.757230" elapsed="0.000000"/>
+</kw>
+<kw name="Go To Register Page" owner="resource">
+<status status="NOT RUN" start="2025-11-14T15:56:34.757230" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:30.670738" elapsed="4.086492">ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF7620&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:30.669734" elapsed="4.087496">Setup failed:
+ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019B96DF7620&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-14T15:56:34.758240" elapsed="2.102570"/>
+</kw>
+<status status="FAIL" start="2025-11-14T15:56:01.087220" elapsed="35.773590"/>
+</suite>
+<status status="FAIL" start="2025-11-14T15:55:25.500677" elapsed="71.361646"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="6" fail="5" skip="0">Tests</stat>
+<stat name="Home" id="s1-s1" pass="2" fail="0" skip="0">Tests.Home</stat>
+<stat name="Login" id="s1-s2" pass="3" fail="0" skip="0">Tests.Login</stat>
+<stat name="Register" id="s1-s3" pass="1" fail="5" skip="0">Tests.Register</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
