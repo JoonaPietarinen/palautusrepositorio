@@ -101,7 +101,7 @@ class TestKauppa(unittest.TestCase):
         self.kauppa.aloita_asiointi()
         self.kauppa.lisaa_koriin(1)
         self.kauppa.lisaa_koriin(1)
-        self.kauppa.tilimaksu("pekka", "123456")
+        self.kauppa.tilimaksu("pekka", "1123456")
         self.kauppa.aloita_asiointi()
         self.kauppa.lisaa_koriin(1)
         self.kauppa.tilimaksu("pekka", "542")
