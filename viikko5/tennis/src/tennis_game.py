@@ -53,6 +53,6 @@ class TennisGame:
             return "Thirty"
         if score == self.FORTY:
             return "Forty"
-
+        raise ValueError(f"Invalid score value: {score}")
     def current_scores(self):
         return f"{self.score_name(self.player1_scores)}-{self.score_name(self.player2_scores)}"
