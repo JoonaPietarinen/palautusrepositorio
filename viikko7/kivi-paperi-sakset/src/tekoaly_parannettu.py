@@ -1,11 +1,11 @@
-# "Muistava tekoäly"
+# "Muistava tekoaly"
 class TekoalyParannettu:
     def __init__(self, muistin_koko):
         self._muisti = [None] * muistin_koko
         self._vapaa_muisti_indeksi = 0
 
     def aseta_siirto(self, siirto):
-        # jos muisti täyttyy, unohdetaan viimeinen alkio
+        # jos muisti tayttyy, unohdetaan viimeinen alkio
         if self._vapaa_muisti_indeksi == len(self._muisti):
             for i in range(1, len(self._muisti)):
                 self._muisti[i - 1] = self._muisti[i]
@@ -36,8 +36,8 @@ class TekoalyParannettu:
                 else:
                     s = s + 1
 
-        # Tehdään siirron valinta esimerkiksi seuraavasti;
-        # - jos kiviä eniten, annetaan aina paperi
+        # Tehdaan siirron valinta esimerkiksi seuraavasti;
+        # - jos kivia eniten, annetaan aina paperi
         # - jos papereita eniten, annetaan aina sakset
         # muulloin annetaan aina kivi
         if k > p or k > s:
@@ -47,5 +47,5 @@ class TekoalyParannettu:
         else:
             return "k"
 
-        # Tehokkaampiakin tapoja löytyy, mutta niistä lisää
-        # Johdatus Tekoälyyn kurssilla!
+        # Tehokkaampiakin tapoja löytyy, mutta niista lisaa
+        # Johdatus Tekoalyyn kurssilla!

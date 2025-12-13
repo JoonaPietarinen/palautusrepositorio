@@ -14,5 +14,5 @@ class Tekoaly:
             return "s"
 
     def aseta_siirto(self, siirto):
-        # ei tehdä mitään
+        # ei tehda mitaan
         pass

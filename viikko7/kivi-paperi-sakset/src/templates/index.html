@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kivi-Paperi-Sakset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .pelimuoto {
+            margin: 20px 0;
+        }
+        .pelimuoto label {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .pelimuoto label:hover {
+            background-color: #45a049;
+        }
+        .pelimuoto input[type="radio"] {
+            margin-right: 10px;
+        }
+        .nimet-section {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .nimi-input {
+            margin-bottom: 10px;
+        }
+        .nimi-input label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+        .nimi-input input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .nimi-input input[type="text"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0b7dda;
+        }
+        .info {
+            background-color: #e7f3fe;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 4px solid #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🪨 📄 ✂️ Kivi-Paperi-Sakset</h1>
+        
+        <div class="info">
+            <p><strong>Valitse pelimuoto:</strong></p>
+        </div>
+        
+        <form action="/start" method="post" id="pelimuotoForm">
+            <div class="pelimuoto">
+                <label>
+                    <input type="radio" name="pelimuoto" value="pelaaja" id="pelaaja" required onchange="togglePlayerNames()">
+                    👥 Pelaaja vs Pelaaja
+                </label>
+            </div>
+            
+            <div class="pelimuoto">
+                <label>
+                    <input type="radio" name="pelimuoto" value="tekoaly" id="tekoaly" required onchange="togglePlayerNames()">
+                    🤖 Pelaaja vs Tekoaly
+                </label>
+            </div>
+            
+            <div class="pelimuoto">
+                <label>
+                    <input type="radio" name="pelimuoto" value="parempi_tekoaly" id="parempi_tekoaly" required onchange="togglePlayerNames()">
+                    🧠 Pelaaja vs Parannettu Tekoaly
+                </label>
+            </div>
+            
+            <div class="nimet-section" style="margin-top: 20px;">
+                <div class="nimi-input">
+                    <label for="pelaaja1_nimi">Pelaaja 1 nimi:</label>
+                    <input type="text" id="pelaaja1_nimi" name="pelaaja1_nimi" placeholder="Syötä nimesi" maxlength="20">
+                </div>
+                
+                <div class="nimi-input" id="pelaaja2_nimi_div" style="display: none; margin-top: 10px;">
+                    <label for="pelaaja2_nimi">Pelaaja 2 nimi:</label>
+                    <input type="text" id="pelaaja2_nimi" name="pelaaja2_nimi" placeholder="Syötä nimesi" maxlength="20">
+                </div>
+            </div>
+            
+            <button type="submit" style="margin-top: 20px;">Aloita peli</button>
+        </form>
+        
+        <script>
+            function togglePlayerNames() {
+                const pelaaja = document.getElementById('pelaaja');
+                const pelaaja2Div = document.getElementById('pelaaja2_nimi_div');
+                
+                if (pelaaja.checked) {
+                    pelaaja2Div.style.display = 'block';
+                } else {
+                    pelaaja2Div.style.display = 'none';
+                }
+            }
+        </script>
+        
+        <div class="info" style="margin-top: 30px;">
+            <p><strong>Peliohjeet:</strong></p>
+            <ul>
+                <li>K = Kivi</li>
+                <li>P = Paperi</li>
+                <li>S = Sakset</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

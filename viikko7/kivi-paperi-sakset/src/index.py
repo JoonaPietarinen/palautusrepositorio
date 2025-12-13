@@ -3,9 +3,9 @@ from kps_tehdas import luo_peli
 def main():
     while True:
         print("Valitse pelataanko"
-              "\n (a) Ihmistä vastaan"
-              "\n (b) Tekoälyä vastaan"
-              "\n (c) Parannettua tekoälyä vastaan"
+              "\n (a) Ihmista vastaan"
+              "\n (b) Tekoalya vastaan"
+              "\n (c) Parannettua tekoalya vastaan"
               "\nMuilla valinnoilla lopetetaan"
               )
 
